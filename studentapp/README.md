@@ -27,6 +27,7 @@ kubectl apply -f service.yml
 ```
 # Copying Files to Pods
 To copy files to specific pods, you can use the kubectl cp command. Here are some examples:
+- Open the index.html and context.xml file and change the ips and ports in it.
 - Copy index.html to the frontend container in the studentpod pod:
 ```
 kubectl cp index.html studentpod:/var/www/html/index.html -c frontend
