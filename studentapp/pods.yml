@@ -32,3 +32,4 @@ spec:
     image: mayurgg7756/frontend:17
     ports: 
       - containerPort: 80
+      
