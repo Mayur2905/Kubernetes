@@ -2,7 +2,7 @@
 kubernetes is greek word meaning of captain.
 Kubernetes, also known as k8s or kube, is an open source container orchestration platform for scheduling and automating the deployment, management and scaling of containerized applications.
 
-# 🧐Why Kubernetes?
+# Why Kubernetes?
 Kubernetes offers several key advantages that make it a popular choice for container orchestration and management:
 - **🧑🏻‍💻Deployment:**
 Deploy a specified number of containers to a specified host and keep them running in a wanted state.
