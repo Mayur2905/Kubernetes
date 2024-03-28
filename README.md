@@ -27,7 +27,7 @@ When a container fails, Kubernetes can restart or replace it automatically to pr
 
 
 
-#📐Architecture of Kubernetes
+# 📐Architecture of Kubernetes
 
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231227123323/Kubernetes-Architecture.png" />
 
