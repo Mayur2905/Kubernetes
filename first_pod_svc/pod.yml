@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: mypod
+  labels:
+    app: myapp
+
+spec:
+  containers:
+  - name: mycontainer
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: mycontainer2
+    image: tomcat:8.0
+    ports:
+    - containerPort: 8080
