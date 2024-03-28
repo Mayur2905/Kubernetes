@@ -25,7 +25,18 @@ kubectl apply -f pods.yml
 kubectl apply -f service.yml
 
 ```
+# Copying Files to Pods
+To copy files to specific pods, you can use the kubectl cp command. Here are some examples:
+- Copy index.html to the frontend container in the studentpod pod:
+```
+kubectl cp index.html studentpod:/var/www/html/index.html -c frontend
+```
+- Copy context.xml to the backend container in the studentpod pod:
 
+```
+kubectl cp context.xml studentpod:/conf/context.xml -c backend
+
+```
 # Accessing the Application
 Once the deployment is successful, you can access the student app using the NodePort exposed by the service. Use the following command to get the NodePort:
 
