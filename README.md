@@ -21,3 +21,4 @@ Kubernetes lets you store and manage sensitive information, such as passwords, O
 Assures high availability with zero downtime
 Reliable infrastructure to support data recovery with ease
 # Architecture of Kubernetes
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20231227123323/Kubernetes-Architecture.png" />
