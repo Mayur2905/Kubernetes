@@ -10,7 +10,7 @@ kubectl configured to manage the cluster
 
 1. Clone this repository:
 ```
-git clone https://github.com/your-repo/studentapp.git
+git clone https://github.com/Mayur2905/Kubernetes.git
 cd studentapp
 ```
 
