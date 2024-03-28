@@ -1,5 +1,5 @@
 # Student App Deployment
-    This repository contains Kubernetes configuration files to deploy a student app consisting of a database, backend, and frontend components.
+This repository contains Kubernetes configuration files to deploy a student app consisting of a database, backend, and frontend components.
 
 ## Prerequisites
 Before deploying the student app, ensure you have the following:
@@ -11,7 +11,7 @@ kubectl configured to manage the cluster
 1. Clone this repository:
 ```
 git clone https://github.com/Mayur2905/Kubernetes.git
-cd studentapp
+cd Kubernetes/studentapp
 ```
 
 2. Apply the Pod configuration:
