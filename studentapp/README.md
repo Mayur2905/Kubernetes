@@ -4,8 +4,9 @@ This repository contains Kubernetes configuration files to deploy a student app 
 ## Prerequisites
 Before deploying the student app, ensure you have the following:
 
-Kubernetes cluster running
-kubectl configured to manage the cluster
+- Amazon EKS cluster configured
+- Node group initialized in the Amazon EKS cluster
+- ```kubectl``` configured to manage the cluster
 ## Deployment
 
 1. Clone this repository:
