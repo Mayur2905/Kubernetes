@@ -1,0 +1,34 @@
+...
+# Pod
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: dev-pod
+  namespace: dev
+  labels:
+    app: devapp
+
+spec:
+  containers:
+   - name : dev-container1
+     image: nginx:latest
+     port:
+        containerPort: 80
+        protocol: TCP
+---
+# Service
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: dev-svc
+  namespace: dev
+spec:
+  type: NodePort
+  selector:
+    app: devapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
