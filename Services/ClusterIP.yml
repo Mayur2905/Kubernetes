@@ -1,4 +1,4 @@
-# Create a POD and NodePort service for it.
+# Creating a POD and a ClusterIP service to expose the POD
 
 apiVersion: v1
 kind: Pod
@@ -6,7 +6,7 @@ kind: Pod
 metadata:
   name: nginx-pod
   labels:
-    app: nginx-app
+    app: nginx
 
 spec:
   containers:
@@ -16,20 +16,18 @@ spec:
     - containerPort: 80
       protocol: TCP
 
-
 ---
 apiVersion: v1
 kind: Service
 
 metadata:
-  name: node-port
+  name: cluster-ip
 
 spec:
   selector:
-    app: nginx-app
+    app: nginx
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: NodePort
-
+  type: ClusterIP

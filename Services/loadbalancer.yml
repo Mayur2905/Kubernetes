@@ -1,3 +1,5 @@
+# Create a pod and a service with type LoadBalancer
+
 apiVersion: v1
 kind: Pod
 
@@ -13,6 +15,7 @@ spec:
     ports:
     - containerPort: 80
       protocol: TCP
+
 
 ---
 apiVersion: v1
