@@ -9,7 +9,7 @@ metadata:
 spec:
   replica: 5
   selector:
-    matchExpression:
+    matchExpressions:
     - {key: nginx, operator: In, values: [nginx-app], namespace: default,}
 
   template:
