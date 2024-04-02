@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: ReplicaSet
 
 metadata:
-  name: replica_set
+  name: replica-set
   labels:
-    app: replica_set
+    app: replica-set
 
 spec:
   replicas: 5
   selector:
     matchExpressions:
-    - {key: app, operator: In, values: [nginx-app, replica_set],}
+    - {key: app, operator: In, values: [nginx-app, replica-set],}
 
   template:
     metadata:
