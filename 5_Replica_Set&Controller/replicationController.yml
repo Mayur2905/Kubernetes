@@ -7,10 +7,10 @@ metadata:
     app: replica_set
 
 spec:
-  replica: 5
+  replicas: 5
   selector:
     matchExpressions:
-    - {key: nginx, operator: In, values: [nginx-app], namespace: default,}
+    - {key: nginx, operator: In, values: [nginx-app, replica_set], namespace: default,}
 
   template:
     metadata:
