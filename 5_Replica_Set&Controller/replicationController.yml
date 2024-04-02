@@ -16,10 +16,10 @@ spec:
       labels:
         app: replication-controller
         name: nginx-app
-      spec:
-        containers:
-        - name: nginx-app
-          image: nginx:latest
-          ports:
-          - containerPort: 80
-            protocol: TCP
+    spec:
+      containers:
+      - name: nginx-app
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+          protocol: TCP
