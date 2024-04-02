@@ -17,7 +17,7 @@ spec:
         app: replication-controller
         name: nginx-app
       spec:
-        container:
+        containers:
         - name: nginx-app
           image: nginx:latest
           ports:
