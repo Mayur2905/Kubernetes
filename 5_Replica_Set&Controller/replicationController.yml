@@ -1,28 +1,25 @@
-apiVersion: apps/v1
-kind: ReplicaSet
+apiVersion: v1
+kind: ReplicationController
 
 metadata:
-  name: replica-set
+  name: replication-controller
   labels:
-    app: replica-set
+    app: replication-controller
 
 spec:
   replicas: 5
   selector:
-    matchExpressions:
-    - {key: app, operator: In, values: [nginx-app, replica-set],}
+    app: replication-controller
 
   template:
     metadata:
       labels:
+        app: replication-controller
         name: nginx-app
-        app: nginx-app
-
-    spec:
-      containers:
-      - name: nginx-app
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-          protocol: TCP
-
+      spec:
+        container:
+        - name: nginx-app
+          image: nginx:latest
+          ports:
+          - containerPort: 80
+            protocol: TCP
