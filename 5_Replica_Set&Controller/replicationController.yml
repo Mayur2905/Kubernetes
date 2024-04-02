@@ -8,17 +8,19 @@ metadata:
 
 spec:
   replica: 5
-  matchExpression:
-  - {key: nginx, operator: In, values: [nginx-app], namespace: default}
+  selector:
+    matchExpression:
+    - {key: nginx, operator: In, values: [nginx-app], namespace: default,}
 
   template:
     metadata:
       labels:
+        name: nginx-app
         app: nginx-app
 
     spec:
       containers:
-      - name: nginx
+      - name: nginx-app
         image: nginx:latest
         ports:
         - containerPort: 80
