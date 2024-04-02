@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: ReplicationController
 
 metadata:
-  name: replica-controller
+  name: replica_controller
   labels:
     app: replica_controller
 
