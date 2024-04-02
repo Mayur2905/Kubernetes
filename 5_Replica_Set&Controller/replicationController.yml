@@ -1,9 +1,10 @@
 apiVersion: apps/v1
-kind: ReplicationController
+kind: ReplicaSet
 
 metadata:
+  name: replica_set
   labels:
-    app: replica_controller
+    app: replica_set
 
 spec:
   replica: 5
