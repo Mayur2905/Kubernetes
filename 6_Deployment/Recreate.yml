@@ -8,10 +8,10 @@ metadata:
 
 spec:
   selector:
-  strategy:
-    type: Recreate # Recreate strategy 
-    matchLabels:
-      app: deployment-app
+    strategy:
+      type: Recreate # Recreate strategy 
+      matchLabels:
+        app: deployment-app
   replicas: 5
   template:
     metadata:
