@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: deployment-app
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       name: deployment
