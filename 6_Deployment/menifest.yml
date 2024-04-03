@@ -9,7 +9,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: deploymnet-app
+      app: deployment-app
   replicas: 3
   template:
     metadata:
@@ -18,7 +18,7 @@ spec:
         app: deployment-app
     spec:
       containers:
-      - name: deploymnet-app
+      - name: deployment
         image: tomcat:8.0
         ports:
         - containerPort: 8080
