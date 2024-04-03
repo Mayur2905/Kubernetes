@@ -16,7 +16,7 @@ spec:
       name: deployment
       labels:
         app: deployment-app
-        version: blue
+        version: green
     spec:
       containers:
       - name: deployment
