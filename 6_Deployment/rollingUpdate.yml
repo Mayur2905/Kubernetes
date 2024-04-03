@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: deployment
+  name: rolling-update-deployment
   labels:
     app: deployment-app
 
