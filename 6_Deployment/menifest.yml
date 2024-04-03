@@ -19,6 +19,21 @@ spec:
     spec:
       containers:
       - name: deployment
-        image: tomcat:8.0
+        image: httpd:latest
         ports:
         - containerPort: 8080
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deployment-service
+spec:
+  selector:
+    app: deployment-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort
