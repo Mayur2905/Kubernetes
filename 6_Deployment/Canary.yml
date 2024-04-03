@@ -11,6 +11,8 @@ spec:
     type: Canary
     canary:
       maxSurge: 1
+      maxUnavailable: 1
+
   selector:
     matchLabels:
       app: deployment-app
