@@ -8,6 +8,8 @@ metadata:
 
 spec:
   selector:
+  strategy:
+    type: Recreate # Recreate strategy 
     matchLabels:
       app: deployment-app
   replicas: 5
@@ -16,11 +18,10 @@ spec:
       name: deployment
       labels:
         app: deployment-app
-        version: green # Blue-Green Deployment
     spec:
       containers:
       - name: deployment
-        image: httpd:latest
+        image: nginx:latest
         ports:
         - containerPort: 80
 

@@ -9,7 +9,7 @@ metadata:
 spec:
   selector:
   strategy:
-    type: RollingUpdate
+    type: RollingUpdate # RollingUpdate strategy
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
