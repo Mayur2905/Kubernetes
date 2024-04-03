@@ -7,8 +7,6 @@ metadata:
     app: deployment-app
 
 spec:
-  strategy:
-    type: BlueGreen
   selector:
     matchLabels:
       app: deployment-app
