@@ -8,7 +8,7 @@ metadata:
 
 spec:
   selector:
-    matchLables:
+    matchLabels:
       app: deploymnet-app
   replicas: 3
   template:
