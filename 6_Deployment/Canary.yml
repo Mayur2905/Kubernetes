@@ -9,9 +9,7 @@ metadata:
 spec:
   strategy:
     type: Canary # Canary strategy
-    canary:
-      maxSurge: 1
-      maxUnavailable: 1
+
 
   selector:
     matchLabels:
