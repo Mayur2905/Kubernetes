@@ -7,11 +7,6 @@ metadata:
     app: deployment-app
 
 spec:
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
   selector:
     matchLabels:
       app: deployment-app
