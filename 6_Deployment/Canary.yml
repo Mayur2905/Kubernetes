@@ -8,7 +8,7 @@ metadata:
 
 spec:
   strategy:
-    type: Canary
+    type: Canary # Canary strategy
     canary:
       maxSurge: 1
       maxUnavailable: 1
