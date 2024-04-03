@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: deployment
-        image: nginx:latest
+        image: httpd:latest
         ports:
         - containerPort: 80
 
