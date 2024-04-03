@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: deployment-app
-  replicas: 3
+  replicas: 5
   template:
     metadata:
       name: deployment
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: deployment
-        image: nginx:latest
+        image: httpd:latest
         ports:
         - containerPort: 80
 
