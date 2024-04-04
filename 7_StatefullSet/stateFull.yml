@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: statefulsets
 
 metadata:
-  name: stateapp
+  name: mysql-stateful
   labels:
     app: statefull
 
