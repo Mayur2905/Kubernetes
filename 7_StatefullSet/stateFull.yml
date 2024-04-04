@@ -20,8 +20,8 @@ spec:
       containers:
       - name: statefull
         image: mysql:latest
-        port:
-          containerPort: 3306
+        ports:
+        - containerPort: 3306
           protocol: TCP
         env:
         - name: MYSQL_ROOT_PASSWORD
