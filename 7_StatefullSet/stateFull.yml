@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: statefulSet
+kind: statefulsets
 
 metadata:
   name: statefullset
