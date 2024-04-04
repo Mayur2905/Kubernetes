@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion:
 kind: statefulsets
 
 metadata:
@@ -18,7 +18,7 @@ spec:
 
     spec:
       containers:
-      - name: mysql
+      - name: statefull
         image: mysql:latest
         port:
           containerPort: 3306
