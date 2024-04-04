@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: statefulsets
 
 metadata:
-  name: mysql-stateful
+  name: statefull
   labels:
     app: statefull
 
@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: mysqlapp
+        app: statefull
 
     spec:
       containers:
