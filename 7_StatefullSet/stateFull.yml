@@ -23,3 +23,6 @@ spec:
         port:
           containerPort: 3306
           protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "12345"
