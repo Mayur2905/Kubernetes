@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: statefull
+  labels:
+    app: statefull
+
+spec:
+  selector:
+    matchLabels:
+      app: statefull
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: statefull
+
+    spec:
+      containers:
+      - name: statefull
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret
+              key: mysqlpasswd
