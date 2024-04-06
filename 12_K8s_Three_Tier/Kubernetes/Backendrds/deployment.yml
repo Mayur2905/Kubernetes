@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: mayurgg7756/
+        image: mayurgg7756/backendrds
         ports:
         - containerPort: 80
