@@ -40,7 +40,7 @@ resource "aws_eks_node_group" "this_node_group" {
 }
 
 # Create a MYSQL DB instance.
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "this_db" {
   allocated_storage    = 10
   db_name              = "studentapp"
   engine               = "mysql"
@@ -51,7 +51,7 @@ resource "aws_db_instance" "default" {
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
   tags = {
-        Name = studentapp
+        Name = "studentapp"
     }
 }
 
