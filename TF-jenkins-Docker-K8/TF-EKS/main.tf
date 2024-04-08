@@ -16,7 +16,7 @@ resource "aws_eks_cluster" "this_eks" {
       subnet_ids = data.aws_subnets.this_subnet.ids
     }
 
-    depends_on = [aws_iam_role_policy_attachment.this_attachment, aws_db_instance.this_db]
+    depends_on = [aws_db_instance.this_db]
 
     tags = {
       Name = "EKS-Cluster"
