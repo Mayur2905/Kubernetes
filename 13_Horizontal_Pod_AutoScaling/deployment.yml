@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: deployapp
   labels:
     app: deployapp
 spec:
@@ -17,13 +17,16 @@ spec:
       containers:
       - name: deployapp
         image: mayurgg7756/frontendrds
+        ports:
+        - containerPort: 80
+          protocol: TCP
         resources:
           requests:
-            cpu: 64m
-            memory: 125Mi
+            cpu: 125m
+            memory: 64Mi
           limits:
-            cpu: 128m
-            memory: 250Mi
+            cpu: 250m
+            memory: 128Mi
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -35,7 +38,7 @@ spec:
     kind: Deployment
     name: deployapp
   minReplicas: 1
-  maxReplicas: 10
+  maxReplicas: 4
   metrics:
   - type: Resource
     resource:
