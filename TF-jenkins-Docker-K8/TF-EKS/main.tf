@@ -10,7 +10,7 @@ data "aws_subnets" "this_subnet"{
 }
 # Create an EKS cluster. 
 resource "aws_eks_cluster" "this_eks" {
-    name = "EKS-Cluster"
+    name = "MG-Cluster"
     role_arn = var.aws_eks_role_arn
     vpc_config {
       subnet_ids = data.aws_subnets.this_subnet.ids
@@ -19,30 +19,36 @@ resource "aws_eks_cluster" "this_eks" {
     depends_on = [aws_db_instance.this_db]
 
     tags = {
-      Name = "EKS-Cluster"
+      Name = "MG-Cluster"
     }
 }
 # Create an EKS node group.
 resource "aws_eks_node_group" "this_node_group" {
-    cluster_name = aws_eks_cluster.this_eks.name
-    node_group_name = "EKS-Node-Group"
-    node_role_arn = var.aws_eks_node_group_role_arn
-    subnet_ids = data.aws_subnets.this_subnet.ids
-
-    scaling_config {
-        desired_size = 1
-        max_size =  1
-        min_size = 1
-    }
-
-    instance_types = ["t2.medium"]
-    depends_on = [aws_eks_cluster.this_eks]
+  cluster_name = aws_eks_cluster.this_eks.name
+  node_group_name = "EKS-Node-Group"
+  node_role_arn = var.aws_eks_node_group_role_arn
+  subnet_ids = data.aws_subnets.this_subnet.ids
+  scaling_config {
+    desired_size = 1
+    max_size = 1
+    min_size = 1
+  }
+  update_config {
+    max_unavailable = 1
+  }
+  depends_on = [ 
+    aws_eks_cluster.this_eks,
+    aws_iam_role_policy_attachment.this-AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.this-AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.this-AmazonEC2ContainerRegistryReadOnly,
+   ]
+  
 }
 
 # Create a MYSQL DB instance.
 resource "aws_db_instance" "this_db" {
   allocated_storage    = 10
-  db_name              = "studentapp"
+  db_name              = "studentdb"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
@@ -50,9 +56,7 @@ resource "aws_db_instance" "this_db" {
   password             = "12345678"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
-  tags = {
-        Name = "studentapp"
-    }
+  publicly_accessible  = true
 }
 
 # Create a S3 bucket.
