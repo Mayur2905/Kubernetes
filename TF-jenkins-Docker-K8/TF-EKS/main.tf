@@ -9,18 +9,21 @@ data "aws_subnets" "this_subnet"{
     }
 }
 # Create an EKS cluster. 
-resource "aws_eks_cluster" "this_eks" {
-    name = "MG-Cluster"
-    role_arn = var.aws_eks_role_arn
-    vpc_config {
-      subnet_ids = data.aws_subnets.this_subnet.ids
-    }
 
-    depends_on = [aws_db_instance.this_db]
+# Create a IAM role for EKS-Node-Group.
+resource "aws_iam_role_policy_attachment" "this-AmazonEKSWorkerNodePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  role       = aws_iam_role.example.name
+}
 
-    tags = {
-      Name = "MG-Cluster"
-    }
+resource "aws_iam_role_policy_attachment" "this-AmazonEKS_CNI_Policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  role       = aws_iam_role.example.name
+}
+
+resource "aws_iam_role_policy_attachment" "this-AmazonEC2ContainerRegistryReadOnly" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  role       = aws_iam_role.example.name
 }
 # Create an EKS node group.
 resource "aws_eks_node_group" "this_node_group" {
