@@ -5,7 +5,7 @@ data "aws_vpc" "this_vpc" {
 data "aws_subnets" "this_subnet"{
     filter {
       name = "vpc-id"
-    values = [data.aws_vpc.default.id]
+    values = [data.aws_vpc.this_vpc.id]
     }
 }
 # Create an EKS cluster. 
