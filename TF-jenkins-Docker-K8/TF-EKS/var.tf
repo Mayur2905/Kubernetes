@@ -3,5 +3,5 @@ variable "aws_eks_role_arn" {
 }
 
 variable "aws_eks_node_group_role_arn" {
-    default = "arn:aws:iam::479954393947:instance-profile/EKS-NODE_ROLE"
+    default = "arn:aws:iam::479954393947:role/EKS-NODE_ROLE"
 }
