@@ -64,11 +64,6 @@ resource "aws_s3_bucket" "this-bucket" {
   
 }
 
-# making the bucket public
-resource "aws_s3_bucket_acl" "this_bucket_acl" {
-    bucket = aws_s3_bucket.this-bucket.bucket
-    acl    = "public-read"
-}
 
 # making versioning enabled for the bucket
 resource "aws_s3_bucket_versioning" "this_bucket_versioning" {
