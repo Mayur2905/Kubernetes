@@ -6,6 +6,8 @@ metadata:
     app: deployapp
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: deployapp
@@ -22,11 +24,11 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 125m
-            memory: 64Mi
+            cpu: "125m"
+            memory: "64Mi"
           limits:
-            cpu: 250m
-            memory: 128Mi
+            cpu: "250m"
+            memory: "128Mi"
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
