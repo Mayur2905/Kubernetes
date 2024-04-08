@@ -8,20 +8,6 @@ data "aws_subnets" "this_subnet"{
     values = [data.aws_vpc.this_vpc.id]
     }
 }
-resource "aws_iam_role" "example" {
-  name = "eks-node-group-example"
-  assume_role_policy = jsonencode({
-    Statement = [{
-      Action = "sts:AssumeRole"
-      Effect = "Allow"
-      Principal = {
-        Service = "ec2.amazonaws.com"
-      }
-    }]
-    Version = "2012-10-17"
-  })
-}
-
 # Create an EKS cluster. 
 resource "aws_eks_cluster" "this_eks" {
     name = "EKS-Cluster"
@@ -30,7 +16,7 @@ resource "aws_eks_cluster" "this_eks" {
       subnet_ids = data.aws_subnets.this_subnet.ids
     }
 
-    depends_on = [aws_iam_role_policy_attachment.this_attachment, aws_db_instance.this_db]
+    depends_on = [aws_db_instance.this_db]
 
     tags = {
       Name = "EKS-Cluster"
