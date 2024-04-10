@@ -58,15 +58,15 @@ resource "aws_eks_node_group" "this_node_group" {
   node_group_name = "EKS-Node-Group"
   node_role_arn = var.aws_eks_node_group_role_arn
   subnet_ids = data.aws_subnets.this_subnet.ids
+
   scaling_config {
     desired_size = 1
     max_size = 1
     min_size = 1
   }
-  instance_types = ["t3.medium"]
+  instance_types = ["t2.medium"]
   
   depends_on = [ 
-    aws_eks_cluster.this_eks,
     aws_iam_role_policy_attachment.this-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.this-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.this-AmazonEC2ContainerRegistryReadOnly,
