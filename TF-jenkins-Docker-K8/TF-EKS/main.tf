@@ -78,6 +78,7 @@ resource "aws_eks_node_group" "this_node_group" {
 # Create a MYSQL DB instance.
 resource "aws_db_instance" "this_db" {
   allocated_storage    = 10
+  db_subnet_group_name = "default"
   db_name              = "studentdb"
   engine               = "mysql"
   engine_version       = "5.7"
@@ -87,6 +88,10 @@ resource "aws_db_instance" "this_db" {
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
   publicly_accessible  = true
+  
+  tags = {
+    Name = "studentdb"
+  }
 }
 
 # Create a S3 bucket.
