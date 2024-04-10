@@ -63,9 +63,7 @@ resource "aws_eks_node_group" "this_node_group" {
     max_size = 1
     min_size = 1
   }
-  update_config {
-    max_unavailable = 1
-  }
+  
   depends_on = [ 
     aws_eks_cluster.this_eks,
     aws_iam_role_policy_attachment.this-AmazonEKSWorkerNodePolicy,
