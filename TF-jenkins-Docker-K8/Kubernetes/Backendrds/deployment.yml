@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+  labels:
+    app: backend-app
+
+spec:
+  selector:
+    matchLabels:
+      app: backend-app
+  replicas: 2
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend-app
+    spec:
+      containers:
+      - name: backend
+        image: mayurgg7756/backendrds
+
+        ports:
+        - containerPort: 8080

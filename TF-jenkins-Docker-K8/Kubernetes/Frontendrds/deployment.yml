@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+  labels:
+    app: frontend-app
+
+spec:
+  selector:
+    matchLabels:
+      app: frontend-app
+  replicas: 2
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: frontend
+        image: mayurgg7756/frontendrds
+        ports:
+        - containerPort: 80
