@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: pv-volume
   labels:
-    type: pv-volume
+    app: pv-volume
 spec:
   storageClassName: standard
   volumeMode: Filesystem
