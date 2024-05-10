@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-expoter
+spec:
+  selector:
+    matchLabels:
+      app: node-expoter
+  template:
+    metadata:
+      labels:
+        app: node-expoter
+    spec:
+      containers:
+      - name: node-expoter
+        image: prom/node-exporter
+        args:
+        - "--path.procfs=/host/proc"
+        - "--path.sysfs=/host/sys"
+        ports:
+        - name: metrics
+          containerPort: 9100
+        volumeMounts:
+        - name: procfs
+          mountPath: /host/proc
+          readOnly: true
+        - name: sysfs
+          mountPath: /host/sys
+          readOnly: true
+        securityContext:
+          seccompProfile:
+            type: RuntimeDefault
+      volumes:
+      - name: procfs
+        hostPath:
+          path: /proc
+      - name: sysfs
+        hostPath:
+          path: /sys
