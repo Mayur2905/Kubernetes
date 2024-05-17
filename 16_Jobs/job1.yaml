@@ -11,5 +11,5 @@ spec:
       containers:
       - name: simple-job
         image: busybox
-        command: ["echo", "Hello Kubernetes!", "sleep 30"]
+        command: ["echo", "Hello Kubernetes!"]
       restartPolicy: Never
