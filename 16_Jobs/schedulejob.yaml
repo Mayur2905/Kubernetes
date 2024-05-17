@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+Metadata:
+  name: testcronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: testcronpod
+            image: ubuntu
+            command: ["bin/bash", "-c", "sudo apt update; sleep 30"]
+          restartPolicy: Never
