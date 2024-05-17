@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: testjob2
+spec:
+  parallelism: 3
+  activeDeadlineSeconds: 10
+  template:
+    metadata:
+      name: testjob2
+    spec:
+      containers:
+      - image: ubuntu
+        name: container2
+        command: ["bin/bash", "-c", "sudo apt update; sleep 30"]
+      restartPolicy: Never
