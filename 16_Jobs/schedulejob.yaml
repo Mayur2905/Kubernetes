@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: testcronpod
+          - name: container1
             image: ubuntu
             command: ["bin/bash", "-c", "sudo apt update; sleep 30"]
           restartPolicy: Never
