@@ -1,15 +1,14 @@
 apiVersion: batch/v1
 kind: Job
-matadata:
-  name: simple-job
-
+metadata:
+  name: testjob
 spec:
   template:
     metadata:
-      name: simple-job
+      name: testjob
     spec:
       containers:
-      - name: simple-job
-        image: busybox
-        command: ["echo", "Hello Kubernetes!"]
-      restartPolicy: Never
+      - image: ubuntu
+        name: container1
+        command: ["bin/bash", "-c", "sudo apt update; sleep 30"]
+        restartPolicy: Never
