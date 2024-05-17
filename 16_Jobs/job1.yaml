@@ -1,14 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: testjob
+  name: testjob2
 spec:
   template:
     metadata:
-      name: testjob
+      name: testjob2
     spec:
       containers:
       - image: ubuntu
-        name: container1
+        name: container2
         command: ["bin/bash", "-c", "sudo apt update; sleep 30"]
-        restartPolicy: Never
+      restartPolicy: Never
+
