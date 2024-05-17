@@ -38,6 +38,9 @@ matadata:
 
 
 spec:
+  selector:
+  matchLabels:
+    app: frontend
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
